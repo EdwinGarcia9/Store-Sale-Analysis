@@ -1,5 +1,4 @@
 id_recibo,producto_id,pedido_id,cantidad,valor_unitario,valor_total,ciudad,costo_envio
-1,41518,341,3,260,780,BR-BA,156.0
 2,4307,1174,5,6175,30875,BR-RJ,6175.0
 3,22407,1399,3,200,600,BR-PB,120.0
 4,3820,1652,6,139,834,BR-DF,166.8
