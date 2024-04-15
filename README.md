@@ -154,96 +154,34 @@ accedimos a la base datos para realizar las consultas que contestarán las pregu
 
 # **1. ¿Cual es el Top 5 productos más vendidos históricamente?**
 
-Se realizó una consulta a la base de datos utilizando las funciones ya descritas y tomando en cuenta los productos, cantidad vendida de cada uno y el ingreso asociado a cada  transacción.
----
+### Se realizó una consulta a la base de datos utilizando las funciones ya descritas y tomando en cuenta los productos, cantidad vendida de cada uno y el ingreso asociado a cada  transacción.
+
+<p align="center">
+  <img src="https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/130804905/0502ec63-0f57-41b6-8b77-d9488b4d8fff" alt="Descripción de la imagen">
+</p>
 
 
 
-
-
-# Consulta SQL y creación de dataframes
-```typescript
-/consulta_sql = text("""
-SELECT p.producto_id, p.producto, p.marca,
-      SUM(i.cantidad) AS cantidad_vendida,
-      SUM(i.cantidad * pr.precio) AS monto_total
-FROM productos p
-INNER JOIN items_pedidos i ON p.producto_id = i.producto_id
-INNER JOIN productos pr ON p.producto_id = pr.producto_id
-GROUP BY p.producto_id, p.producto, p.marca
-ORDER BY cantidad_vendida DESC
-LIMIT 5
-
-""")
-
-
-# Ejecutar la consulta SQL y cargar los resultados en un DataFrame
-resultados = database.execute(consulta_sql)
-
-# Guardar los resultados en un DataFrame
-df = pd.DataFrame(resultados, columns=['producto_id', 'producto', 'marca', 'cantidad_vendida', 'monto_total'])
-df["monto_total"] = (df["monto_total"]/1000).apply(lambda x: f'${x:.0f}K')
-};
-```
-
-# Observaciones
-**-El producto mas vendido fue el Saia Midi Cinto Limone de Jade Seba con 549 unidades.**
-
-**-Los ingresos neto del producto mas vendido fue de 115 mil reales, sin embargo nu fue el producto que mas ingreso recaudó.**
-
-**-Los productos mas vendidos fueron prendas para mujeres.**
+## Insight 1
+**El análisis histórico de ventas revela que el producto más demandado es el Saia Midi Cinto de la prestigiosa marca Limone By Jade Seba, con un total de 549 unidades vendidas. Sin embargo, cabe destacar que el producto que genera mayores ingresos es el vestido Nude Reta de la reconocida marca Ellus, el cual registra 547 unidades vendidas. Este último producto reporta un rendimiento financiero significativamente superior al Saia Midi Cinto, con ingresos que superan más del doble a los del mencionado producto.**
 
 
 
-#**Pregunta 2: ¿Cual es la evolución histórica de las ingresos netos?**
-Para responder a este planteamiento, se realizó la consulta sql sobre la base de datos y se realizó la preparación de varios dataframe que ayudarán a responder a esta y otras interrogantes: Ingreso neto promedio diario total periodo, Ingreso neto promedio diario  por año, Ingreso neto promedio diario  desde 2020 y el  histórico de ingresos netos.
----
+# **Pregunta 2: ¿Cual es la evolución histórica de las ingresos netos?**
+### Para responder a este planteamiento, se realizó la consulta sql sobre la base de datos y se realizó la preparación de varios dataframe que ayudarán a responder a esta y otras interrogantes: Ingreso neto promedio diario total periodo, Ingreso neto promedio diario  por año, Ingreso neto promedio diario  desde 2020 y el  histórico de ingresos netos.
 
-# Consulta SQL y creación de dataframes
-```typescript
-/# Definir la consulta SQL
-consulta_sql = text("""
-SELECT
-    p.fecha_compra AS fecha,
-    strftime('%Y', p.fecha_compra) AS año,
-    strftime('%m', p.fecha_compra) AS mes,
-    strftime('%d', p.fecha_compra) AS dia,
-    (p.total - i.costo_envio) AS ingreso_neto,
-    pr.marca AS marca,
-    pr.producto AS producto
-FROM
-    pedidos p
-INNER JOIN
-    items_pedidos i ON p.pedido_id = i.pedido_id
-INNER JOIN
-    productos pr ON i.producto_id = pr.producto_id
-
-""")
-
-# Ejecutar la consulta SQL y cargar los resultados en un DataFrame
-resultados = database.execute(consulta_sql)
-
-# Guardar los resultados en un DataFrame
-df_ingreso_neto= pd.DataFrame(resultados)
-df_ingreso_neto
-```
-
-# Gráfico de evolución histórica de ingresos netos
+### Gráfico de evolución histórica de ingresos netos
 
 ![image](https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/122738840/c5f9e97c-82e2-402c-85b8-8d2845223bb2)
 
-# **Insights**
+### Insight 2
 **-El valor promedio de ingresos netos, del periodo 2019-2021 es de $1.494 reales.**
----
 
 **-El valor promedio de ingresos netos, desde el 2020 es de $1.492 reales.**
----
 
 **-El 24 de Noviembre de 2019 se reportó un ingreso de $290 mil reales generado por la venta de marcas famosas, con Givenchy y Barbara Bela como preferidas.**
----
 
 **-El año 2021 presento un promedio de ventas netas diarias de $1450 con una baja del 2,9% de la media del periodo, afectado por sólo tener el primer trimestre de ventas en los datos.**
----
 
 
 
