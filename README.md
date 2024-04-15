@@ -1,12 +1,16 @@
 # PROYECTO STORE SALES ANALYSIS
 
 
-# Authors
+<h3 align="center">🛠️ Miembros del Equipo</h3>
 
-- [@EdwinGarcia9](https://github.com/EdwinGarcia9)
-- [@LeopoldoGitHub](https://github.com/LeopoldoGitHub)
-
-
+****
+<br>
+<div align="center"> 
+ 
+|Participantes|Roles|Redes|
+|:---:|:---:|:---:|
+|**Edwin Garcia**|![](https://img.shields.io/badge/DATA%20SCIENTIST-blue?style=for-the-badge) | <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/edd-garcia/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/EdwinGarcia9"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>   |
+|**Leopoldo Flores**|![](https://img.shields.io/badge/DATA%20SCIENTIST-blue?style=for-the-badge)| <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/leopoldofloresc/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/LeopoldoGitHub"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>|
 
 ## **Problema de negocio**
 
