@@ -321,6 +321,9 @@ df = pd.DataFrame(resultados, columns=['ciudad', 'ingreso_neto'])
 
 
 
+# **Recomendaciones**
+
+
 
 
 
@@ -351,12 +354,12 @@ Si. Se realizaron las consultas necesarias para construir un dataframe o datafra
 
 # Table
 
-| Tecnologías           | Artist                 | Year |
+| Tecnologías           | ----              | --- |
 | :-------------- | :--------------------- | :----|
-| Python	    | Bad Bunny              | 2022 | 
-| Google Colab           | Malcolm Lockyer	       | 1961 |
-| Power BI	  | Earth, Wind, and Fire  | 1975 |
-| SQLite	  | Earth, Wind, and Fire  | 1975 |
-| Github	  | Earth, Wind, and Fire  | 1975 |
+| Python	    | -----            | ---- | 
+| Google Colab           | ---	       | --- |
+| Power BI	  |--------------------  | ---- |
+| SQLite	  | ---------------------  | ---- |
+| Github	  | ---------------------  | ---- |
 
 
