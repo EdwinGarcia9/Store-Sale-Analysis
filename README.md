@@ -140,7 +140,8 @@ accedimos a la base datos para realizar las consultas que contestarán las pregu
 
 # **1. ¿Cual es el Top 5 productos más vendidos históricamente?**
 
-Se realizó una consulta a la base de datos utilizando las funciones ya descritas y tomando en cuenta los productos, cantidad vendida de cada uno y el ingreso asociado cada  transacción
+Se realizó una consulta a la base de datos utilizando las funciones ya descritas y tomando en cuenta los productos, cantidad vendida de cada uno y el ingreso asociado a cada  transacción.
+---
 
 
 
@@ -171,110 +172,180 @@ df["monto_total"] = (df["monto_total"]/1000).apply(lambda x: f'${x:.0f}K')
 };
 ```
 
+# Observaciones
+**-El producto mas vendido fue el Saia Midi Cinto Limone de Jade Seba con 549 unidades.**
+
+**-Los ingresos neto del producto mas vendido fue de 115 mil reales, sin embargo nu fue el producto que mas ingreso recaudó.**
+
+**-Los productos mas vendidos fueron prendas para mujeres.**
 
 
 
 #**Pregunta 2: ¿Cual es la evolución histórica de las ingresos netos?**
+Para responder a este planteamiento, se realizó la consulta sql sobre la base de datos y se realizó la preparación de varios dataframe que ayudarán a responder a esta y otras interrogantes: Ingreso neto promedio diario total periodo, Ingreso neto promedio diario  por año, Ingreso neto promedio diario  desde 2020 y el  histórico de ingresos netos.
+---
+
+# Consulta SQL y creación de dataframes
+```typescript
+/# Definir la consulta SQL
+consulta_sql = text("""
+SELECT
+    p.fecha_compra AS fecha,
+    strftime('%Y', p.fecha_compra) AS año,
+    strftime('%m', p.fecha_compra) AS mes,
+    strftime('%d', p.fecha_compra) AS dia,
+    (p.total - i.costo_envio) AS ingreso_neto,
+    pr.marca AS marca,
+    pr.producto AS producto
+FROM
+    pedidos p
+INNER JOIN
+    items_pedidos i ON p.pedido_id = i.pedido_id
+INNER JOIN
+    productos pr ON i.producto_id = pr.producto_id
+
+""")
+
+# Ejecutar la consulta SQL y cargar los resultados en un DataFrame
+resultados = database.execute(consulta_sql)
+
+# Guardar los resultados en un DataFrame
+df_ingreso_neto= pd.DataFrame(resultados)
+df_ingreso_neto
+```
+
+# Gráfico de evolución histórica de ingresos netos
+
+![image](https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/122738840/c5f9e97c-82e2-402c-85b8-8d2845223bb2)
+
+# **Insights**
+**-El valor promedio de ingresos netos, del periodo 2019-2021 es de $1.494 reales.**
+---
+
+**-El valor promedio de ingresos netos, desde el 2020 es de $1.492 reales.**
+---
+
+**-El 24 de Noviembre de 2019 se reportó un ingreso de $290 mil reales generado por la venta de marcas famosas, con Givenchy y Barbara Bela como preferidas.**
+---
+
+**-El año 2021 presento un promedio de ventas netas diarias de $1450 con una baja del 2,9% de la media del periodo, afectado por sólo tener el primer trimestre de ventas en los datos.**
+---
+
+
 
 
 #**Pregunta 3: ¿Cuáles son los ingresos netos por vendedor por año?**
 
 
-# **4 ¿Cual es el Top 5 productos más vendidos históricamente?**
+Se tomó la consulta sql con la tabla de vendedores y los ingresos netos asociados a las ventas realizadas por cada uno de ellos.
+---
 
+# Consulta SQL y creación de dataframes
+```typescript
+/# Definir la consulta SQL
 
+consulta_sql = text("""
+SELECT
+    nombre_vendedor,
+    SUM((strftime('%Y', fecha_compra) = '2019') * (total - costo_envio)) AS "Año 2019",
+    SUM((strftime('%Y', fecha_compra) = '2020') * (total - costo_envio)) AS "Año 2020",
+    SUM((strftime('%Y', fecha_compra) = '2021') * (total - costo_envio)) AS "Año 2021"
+FROM
+    pedidos p
+INNER JOIN
+    items_pedidos ip ON p.pedido_id = ip.pedido_id
+INNER JOIN
+    vendedores v ON p.vendedor_id = v.vendedor_id
+GROUP BY
+    nombre_vendedor;
 
+""")
 
+# Ejecutar la consulta SQL y cargar los resultados en un DataFrame
+consulta_vendedor = database.execute(consulta_sql)
 
-
-
-# Status badges
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8f784d8e-d28d-43a2-b892-39cddea52192/deploy-status)](https://app.netlify.com/sites/charming-eclair-87aaaww7301a/deploys)
-
-![Status GitHub Action](https://github.com/nelsoncode019/screenshotsite/actions/workflows/codeql-analysis.yml/badge.svg)
-
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://github.com)
-
-
-## Installation
-
- ```bash
-pip install fastapi
+# Guardar los resultados en un DataFrame
+df_ingreso_vendedor= pd.DataFrame(consulta_vendedor)
+df_ingreso_vendedor
 ```
 
+# Gráfico de ingresos netos de vendedor por año
 
-# Support
-[!["Buy Me A Coffee"](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/NelsonCodeDev)
-[!["Patreon"](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/nelsoncode)
-[!["PayPal"](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/nelsonher019)
+![image](https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/122738840/9676e205-63f3-4afa-adc3-301daefc71fb)
 
 
+# **Insights**
+**-Los vendedores Daniel y Ana aumentaron sus ingresos netos de $2 a $5 millones.**
+---
+
+**-Los vendedores Nadia y Milena aumentaron hasta $4 millones.**
+---
+
+**-El vendedor Paulo muestra una tendencia a la baja que debe ser evaluada, sin embargo es el que mas ingresos en total del periodo 2019-2021 con $7,8 millones .**
+---
 
 
-# ⚡️ Features
 
-✅  Search in Editor
-
-✅  Download README.md file
-
-✅  Upload README.md file
-
-✅  Docker version
-
-✅  Friendly UI
-
-❌  Light Mode
+# **4. ¿Cuáles son las ciudades que proporcionan mayores ingresos netos?
 
 
-# API Reference
+**Para resolver este planteamiento se realizó una consulta de la ciudad en la tabla pedidos y se utilizó la libreria geobr para obtener los çodigos de las ciudades de Brasil. Mira lo que sigue a continuación...**
+---
 
-> Version 1.0
+# Consulta SQL y creación de dataframes
+```typescript
+/consulta_sql = text("""
+  SELECT items_pedidos.ciudad,
+  SUM(pedidos.total - items_pedidos.costo_envio) AS ingreso_neto
+  FROM pedidos
+  INNER JOIN items_pedidos ON pedidos.pedido_id = items_pedidos.pedido_id
+  GROUP BY items_pedidos.ciudad;
+""")
 
-## Path for tables
-  
-  | Method | Path                                                     | Description              | Information                            |
-| ------ | -------------------------------------------------------- | ------------------------ | -------------------------------------- |
-| GET    | [/api/get/table/all](get/table/all.ts)                   | Get all tables by region | [Reference](#get-all-tables-by-region) |
-  
-```bash
- GET /api/get/table/all
+
+# Ejecutar la consulta SQL y cargar los resultados en un DataFrame
+resultados = database.execute(consulta_sql)
+
+# Guardar los resultados en un DataFrame
+df = pd.DataFrame(resultados, columns=['ciudad', 'ingreso_neto'])
 ```
 
-  | Header            | Type     | Description                                | Required |
-  | :---------------- | :------- | :----------------------------------------- | :------- |
-  | ```accesskeyid```       | ```string```   | The access key ID for your AWS account     | True     |
-  | ```secretaccesskey```   | ```string```   | The secret access key for your AWS account | True     |
-  | ```region```            | ```string```   | The region you want to use                 | True     |
-  
-### Responses
+# Gráfico de ingresos netos por ciudades de Brasil
 
-  - 200 OK
-  
-```json
-{
-    "TableNames": ["students", "teachers", "admins"]
-}
-```
+![image](https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/122738840/3259d822-878c-4f70-bb99-c3cd69e5f26e)
+
+
+
+# **Insights**
+
+
+
+
+# **Recomendaciones**
+
+
+
+
+
 
 # FAQ
 
 <details>
-<summary>What is GitHub and how does it work?</summary>
+<summary>Se utilizó algun gestor de datos?</summary>
 
-GitHub is the home for all developers—a platform where you can share code, contribute to open source projects, or even automate your workflow with tools like GitHub Actions and Packages. If you’re just getting started with GitHub, you may know us best as a place for version control and collaboration.
+Se utilizó SQLite para ejecutar la base de datos y realizar las consultas, sin embargo se puede utilizar MySQL, Posgree o cualquier otro que soporte SQL.
 </details>
 
 <details>
-<summary>Who is GitHub for?</summary>
+<summary>Que programa se usó para las visualizaciones?</summary>
 
-You! And it’s not just developers who build on GitHub—Fortune 500 companies, small teams, project managers, and college professors all use GitHub to do their best work, in one place.
+Se reealizaron visualizaciones en pandas, sin embargo aprovechando el proyecto para conectar bases de datos, se aplicó Power BI para complementar graficos y probar la interconexión entre los programas para un mismo proyecto.
 </details>
 
 <details>
-<summary>Do people use GitHub only for code?</summary>
+<summary>Se usaron consultas sql y manipulación de datos con Pandas</summary>
 
-Nope. Like we mentioned above, different people and teams use GitHub for different projects. While we got our start as a version control platform, GitHub is now used to manage teams, share resumes, find new projects, track work, and host discussions, just to name a few.
+Si. Se realizaron las consultas necesarias para construir un dataframe o dataframes que fueran suficiente para manipular con pandas y terminar todas las operaciones necesarias en el notebook de google colab.
 </details>
 
 
@@ -283,10 +354,12 @@ Nope. Like we mentioned above, different people and teams use GitHub for differe
 
 # Table
 
-| Song            | Artist                 | Year |
+| Tecnologías           | ----              | --- |
 | :-------------- | :--------------------- | :----|
-| Moscow Mule	    | Bad Bunny              | 2022 | 
-| Stars           | Malcolm Lockyer	       | 1961 |
-| Shining Star	  | Earth, Wind, and Fire  | 1975 |
+| Python	    | -----            | ---- | 
+| Google Colab           | ---	       | --- |
+| Power BI	  |--------------------  | ---- |
+| SQLite	  | ---------------------  | ---- |
+| Github	  | ---------------------  | ---- |
 
 
