@@ -67,12 +67,26 @@ En esta etapa se cargaron los dataframe para luego realizar la limpieza, transfo
 # **EDA visualizaciones**
 Se realizaron distintas visualizaciones para explorar los datos de cada dataframe y ver el comportamiento de las variables.
 
+
+![output](https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/130804905/3e5f335e-54c7-468d-9edf-de4175fc2eeb)
+
+
+<p align="center">
+  <img src="https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/130804905/f188008f-86d9-45ec-b547-cd95f3166cbe" alt="Descripción de la imagen">
+</p>
+
+
+
 # **Banco de Datos**
-En este apartado se realizó la creación de la base de datos y la conexión , mediante la definición de funciones que guardan la base de datos en un repositorio definido por el usuario y agrega tablas provenientes de dataframes ya existentes.
+Nuestro objetivo como científicos de datos fue obtener una perspectiva concisa y clara del comportamiento de los datos y las relaciones que mantienen entre sí. Para lograr esto, recurrimos al diagrama Entidad-Relación (ER) entre las tablas. Esta acción tenía como objetivo mejorar la comprensión de los datos, así como identificar y optimizar posibles redundancias entre ellos.
+
+<p align="center">
+  <img src="https://github.com/EdwinGarcia9/Store-Sale-Analysis/assets/130804905/9a4c1833-17d4-4517-bb69-b3dec61b9ac0" alt="Descripción de la imagen">
+</p>
 
 
 
-
+Luego en este apartado se realizó la creación de la base de datos y la conexión, mediante la definición de funciones que guardan la base de datos en un repositorio definido por el usuario y agrega tablas provenientes de dataframes ya existentes.
 
 # Función Crear base de datos
 ```typescript
