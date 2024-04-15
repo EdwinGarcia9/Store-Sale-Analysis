@@ -14,6 +14,17 @@
 
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YvleTlJjqg_rsfuVX4j-TC-5Z7CeZNq4?usp=sharing)
 
+<h2>🚧 Stack de Tecnologías </h2>
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Colab](https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=google-colab&logoColor=white)](https://colab.research.google.com/)
+[![PowerBI](https://img.shields.io/badge/PowerBI-F2C811?style=flat&logo=power-bi&logoColor=white)](https://powerbi.microsoft.com/)
+[![Trello](https://img.shields.io/badge/Trello-0052CC?style=flat&logo=trello&logoColor=white)](https://trello.com/)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.com/)
+
+
+
 
 # PROBLEMA DE NEGOCIO
 
