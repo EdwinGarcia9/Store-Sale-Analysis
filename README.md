@@ -278,14 +278,4 @@ Si. Se realizaron las consultas necesarias para construir un dataframe o datafra
 
 
 
-# Table
-
-| Tecnologías           | ----              | --- |
-| :-------------- | :--------------------- | :----|
-| Python	    | -----            | ---- | 
-| Google Colab           | ---	       | --- |
-| Power BI	  |--------------------  | ---- |
-| SQLite	  | ---------------------  | ---- |
-| Github	  | ---------------------  | ---- |
-
 
