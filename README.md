@@ -1,14 +1,33 @@
 # PROYECTO STORE SALES ANALYSIS
 
 
-# Authors
 
-- [@EdwinGarcia9](https://github.com/EdwinGarcia9)
-- [@LeopoldoGitHub](https://github.com/LeopoldoGitHub)
+<h3 align="center">🛠️ Miembros del Equipo</h3>
+****
+<br>
+<div align="center"> 
+ 
+|Participantes|Roles|Redes|
+|:---:|:---:|:---:|
+|**Edwin Garcia**|![](https://img.shields.io/badge/DATA%20SCIENTIST-blue?style=for-the-badge) | <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/edd-garcia/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/EdwinGarcia9"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>   |
+|**Leopoldo Flores**|![](https://img.shields.io/badge/DATA%20SCIENTIST-blue?style=for-the-badge)| <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/leopoldofloresc/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a> <a target="_blank" rel="noopener noreferrer" href="https://github.com/LeopoldoGitHub"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" /></a>|
+
+[![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18lGbMtQx-Lj3sqP2n8umPIGwFmYGQM-C?usp=sharing) 
+
+
+<h2>🚧 Stack de Tecnologías </h2>
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Colab](https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=google-colab&logoColor=white)](https://colab.research.google.com/)
+[![PowerBI](https://img.shields.io/badge/PowerBI-F2C811?style=flat&logo=power-bi&logoColor=white)](https://powerbi.microsoft.com/)
+[![Trello](https://img.shields.io/badge/Trello-0052CC?style=flat&logo=trello&logoColor=white)](https://trello.com/)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.com/)
 
 
 
-## **Problema de negocio**
+
+# PROBLEMA DE NEGOCIO
 
 
 Una tienda online de moda, con presencia en todo Brasil, necesita impulsar su rendimiento utilizando sus datos de manera estratégica. Como científico de datos, has sido convocado para analizar estos datos y ofrecer insights que guíen sus decisiones y respondan a las siguientes preguntas clave
@@ -258,15 +277,5 @@ Si. Se realizaron las consultas necesarias para construir un dataframe o datafra
 
 
 
-
-# Table
-
-| Tecnologías           | ----              | --- |
-| :-------------- | :--------------------- | :----|
-| Python	    | -----            | ---- | 
-| Google Colab           | ---	       | --- |
-| Power BI	  |--------------------  | ---- |
-| SQLite	  | ---------------------  | ---- |
-| Github	  | ---------------------  | ---- |
 
 
