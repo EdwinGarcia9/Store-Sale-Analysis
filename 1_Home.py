@@ -5,13 +5,13 @@ import streamlit.components.v1 as c
 import datetime
 import numpy as np
 import matplotlib.pyplot as plt
-import logging
-logger = logging.getLogger('cmdstanpy')
-logger.addHandler(logging.NullHandler())
-logger.propagate=False
-logger.setLevel(logging.CRITICAL)
-import warnings
-warnings.filterwarnings('ignore')
+# import logging
+# logger = logging.getLogger('cmdstanpy')
+# logger.addHandler(logging.NullHandler())
+# logger.propagate=False
+# logger.setLevel(logging.CRITICAL)
+# import warnings
+# warnings.filterwarnings('ignore')
 
 st.set_page_config(page_title="Store-Sales-Analysis-DATADOS",
                    page_icon="./img/logo.png",
