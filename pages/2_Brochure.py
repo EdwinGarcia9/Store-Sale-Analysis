@@ -24,18 +24,18 @@ texto = """Se obtienen los datos del acceso directo a la información del histó
 st.write(texto)
 
 with st.expander('Df pedidos'):
-    df = pd.read_csv("../Data/df_pedidos.csv")
+    df = pd.read_csv("./Data/df_pedidos.csv")
     st.write(df)
 with st.expander('Df items_pedidos'):
-    df = pd.read_csv("../Data/df_items_pedidos.csv")
+    df = pd.read_csv("./Data/df_items_pedidos.csv")
     st.write(df)
     
 with st.expander('Df productos'):
-    df = pd.read_csv("../Data/df_productos.csv")
+    df = pd.read_csv("./Data/df_productos.csv")
     st.write(df)
 
 with st.expander('Df vendedores'):
-    df = pd.read_csv("../Data/df_vendedores.csv")
+    df = pd.read_csv("./Data/df_vendedores.csv")
     st.write(df)
 
 st.subheader('Transformación y limpieza de los datos:')
@@ -57,6 +57,6 @@ texto ="""Relaciones entre las distintas tablas:"""
 st.write(texto)    
 
 # with st.expander('Relaciones'):
-img = Image.open("../img/relation.png")
+img = Image.open("./img/relation.png")
 imagen = img.resize((800, 400))
 st.image(imagen)    

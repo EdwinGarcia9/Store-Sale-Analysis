@@ -19,8 +19,8 @@ st.set_page_config(page_title="Store-Sales-Analysis-DATADOS",
 
 st.title("Proyecto Store Sales Analysis by DATADOS")
 st.markdown("_Version 1.0_")
-img = Image.open("../img/logo.png")
-imagen = img.resize((250, 150))
+img = Image.open("./img/logo.png")
+imagen = img.resize((240, 150))
 st.image(imagen)
 
 
