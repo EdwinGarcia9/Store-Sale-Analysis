@@ -14,8 +14,9 @@ import warnings
 warnings.filterwarnings('ignore')
 
 st.set_page_config(page_title="Store-Sales-Analysis-DATADOS",
-                   page_icon="../img/logo.png",
+                   page_icon="./img/logo.png",
                    layout="wide")
+
 
 st.title("Proyecto Store Sales Analysis by DATADOS")
 st.markdown("_Version 1.0_")
