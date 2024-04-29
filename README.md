@@ -25,7 +25,10 @@
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.com/)
 
 
-<a target="_blank" rel="noopener noreferrer" href="(https://store-sale-analysis-datadosbootcampxperience.streamlit.app/)"><img src="Media/streamlit-button.png"width="30%"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://store-sale-analysis-datadosbootcampxperience.streamlit.app/">
+    <img src="img/streamlitLogo.jpeg">
+</a>
+
 
 
 
