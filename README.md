@@ -24,9 +24,12 @@
 [![Trello](https://img.shields.io/badge/Trello-0052CC?style=flat&logo=trello&logoColor=white)](https://trello.com/)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.com/)
 
+
 <a target="_blank" rel="noopener noreferrer" href="https://store-sale-analysis-datadosbootcampxperience.streamlit.app/">
     <img src="img/streamlitLogo.jpeg">
 </a>
+
+
 
 
 # PROBLEMA DE NEGOCIO
